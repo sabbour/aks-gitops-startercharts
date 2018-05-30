@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm starter chart for Kubernetes
+name: public-ingress-app
+version: v0.1.0

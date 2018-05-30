@@ -1,0 +1,44 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+# The XX_ variables should be tokenized in the build process, or passed through the CLI
+
+replicaCount: 2
+
+image:
+  registry: REPLACEME.azurecr.io
+  repository: organization/appname
+  tag: XX_ENVNAME_XX-XX_BUILDID_XX
+  pullPolicy: Always
+  pullSecrets:
+     - myRegistrKeySecretName
+
+ingress:
+  enabled: true
+  hostname: XX_SERVICENAME_XX-XX_ENVNAME_XX.XX_CLUSTERHOST_XX
+  annotations:
+     kubernetes.io/ingress.class: addon-http-application-routing
+
+service:
+  name: XX_SERVICENAME_XX
+  type: ClusterIP
+  externalPort: 80
+  internalPort: 80
+
+resources:
+  limits:
+    cpu: 1
+    memory: 256Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+  initialDelaySeconds: 120
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+  initialDelaySeconds: 30
