@@ -7,14 +7,14 @@ replicaCount: 2
 image:
   registry: XX_REGISTRY_XX
   repository: XX_IMAGE_XX
-  tag: XX_ENVNAME_XX-XX_BUILDID_XX
+  tag: XX_BRANCHNAME_XX-XX_BUILDID_XX
   pullPolicy: Always
   pullSecrets:
      - XX_IMAGEPULLSECRETNAME_XX
 
 ingress:
   enabled: true
-  hostname: XX_SERVICENAME_XX-XX_ENVNAME_XX.XX_CLUSTERHOST_XX
+  hostname: XX_SERVICENAME_XX-XX_BRANCHNAME_XX.XX_CLUSTERHOST_XX
   annotations:
      kubernetes.io/ingress.class: addon-http-application-routing
 
