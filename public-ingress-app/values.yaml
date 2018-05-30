@@ -5,12 +5,12 @@
 replicaCount: 2
 
 image:
-  registry: REPLACEME.azurecr.io
-  repository: organization/appname
+  registry: XX_REGISTRY_XX
+  repository: XX_IMAGE_XX
   tag: XX_ENVNAME_XX-XX_BUILDID_XX
   pullPolicy: Always
   pullSecrets:
-     - myRegistrKeySecretName
+     - XX_IMAGEPULLSECRETNAME_XX
 
 ingress:
   enabled: true
